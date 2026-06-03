@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -12,41 +13,24 @@
   :root{
     --font:'DM Sans',sans-serif;
     --mono:'DM Mono',monospace;
-    --ink:#1a1a1a;
-    --muted:#6b6b6b;
-    --hint:#9b9b9b;
-    --surface:#ffffff;
-    --bg:#f7f7f5;
-    --border:rgba(0,0,0,0.1);
-    --border-md:rgba(0,0,0,0.18);
-    --accent:#0C447C;
-    --accent-light:#E6F1FB;
-    --accent-text:#185FA5;
-    --green-bg:#E1F5EE;
-    --green-text:#0F6E56;
+    --ink:#1a1a1a;--muted:#6b6b6b;--hint:#9b9b9b;
+    --surface:#ffffff;--bg:#f7f7f5;
+    --border:rgba(0,0,0,0.1);--border-md:rgba(0,0,0,0.18);
+    --accent:#0C447C;--accent-light:#E6F1FB;--accent-text:#185FA5;
+    --green-bg:#E1F5EE;--green-text:#0F6E56;
   }
-  @media(prefers-color-scheme:dark){
-    :root{
-      --ink:#e8e6de;
-      --muted:#9b9994;
-      --hint:#6b6a65;
-      --surface:#1e1e1c;
-      --bg:#161614;
-      --border:rgba(255,255,255,0.1);
-      --border-md:rgba(255,255,255,0.18);
-      --accent:#378ADD;
-      --accent-light:#042C53;
-      --accent-text:#85B7EB;
-      --green-bg:#04342C;
-      --green-text:#5DCAA5;
-    }
-  }
+  @media(prefers-color-scheme:dark){:root{
+    --ink:#e8e6de;--muted:#9b9994;--hint:#6b6a65;
+    --surface:#1e1e1c;--bg:#161614;
+    --border:rgba(255,255,255,0.1);--border-md:rgba(255,255,255,0.18);
+    --accent:#378ADD;--accent-light:#042C53;--accent-text:#85B7EB;
+    --green-bg:#04342C;--green-text:#5DCAA5;
+  }}
   body{font-family:var(--font);background:var(--bg);color:var(--ink);min-height:100vh;}
-  .screen{display:none;}
-  .screen.active{display:block;}
+  .screen{display:none;}.screen.active{display:block;}
 
   /* LOGIN */
-  #screen-login{display:flex;align-items:center;justify-content:center;min-height:100vh;padding:2rem;}
+  .login-wrap{display:flex;align-items:center;justify-content:center;min-height:100vh;padding:2rem;}
   .login-card{width:100%;max-width:400px;background:var(--surface);border:0.5px solid var(--border-md);border-radius:16px;padding:2.25rem 2.25rem 2rem;}
   .login-brand{display:flex;align-items:center;gap:10px;margin-bottom:2rem;}
   .login-brand-icon{width:38px;height:38px;background:var(--accent);border-radius:9px;display:flex;align-items:center;justify-content:center;color:#fff;font-size:18px;}
@@ -58,11 +42,9 @@
   .login-btn:hover{opacity:.88;}
   .login-hint{font-size:11px;color:var(--hint);text-align:center;margin-top:1rem;}
 
-  /* LAYOUT */
+  /* APP */
   .app{max-width:900px;margin:0 auto;padding:0 1.5rem 3rem;}
-
-  /* NAV */
-  .nav{display:flex;justify-content:space-between;align-items:center;padding:1rem 0;border-bottom:0.5px solid var(--border);margin-bottom:0;position:sticky;top:0;background:var(--bg);z-index:10;}
+  .nav{display:flex;justify-content:space-between;align-items:center;padding:1rem 0;border-bottom:0.5px solid var(--border);position:sticky;top:0;background:var(--bg);z-index:10;}
   .nav-brand{display:flex;align-items:center;gap:8px;}
   .nav-brand-icon{width:28px;height:28px;background:var(--accent);border-radius:6px;display:flex;align-items:center;justify-content:center;color:#fff;font-size:14px;}
   .nav-brand-name{font-size:13px;font-weight:500;color:var(--ink);}
@@ -75,67 +57,47 @@
   .nav-logout{font-size:11px;color:var(--muted);background:none;border:0.5px solid var(--border);border-radius:7px;padding:4px 10px;cursor:pointer;font-family:var(--font);}
   .nav-logout:hover{background:var(--surface);}
 
-  /* TABS */
-  .tab{display:none;padding-top:1.75rem;}
-  .tab.active{display:block;}
-
-  /* LOADING */
+  .tab{display:none;padding-top:1.75rem;}.tab.active{display:block;}
   .loading{text-align:center;padding:3rem;color:var(--muted);font-size:13px;}
   .loading i{font-size:24px;display:block;margin-bottom:.5rem;color:var(--accent);animation:spin 1s linear infinite;}
   @keyframes spin{to{transform:rotate(360deg)}}
+  .error-msg{text-align:center;padding:2rem;color:var(--muted);font-size:13px;line-height:1.7;}
+  .error-msg i{font-size:24px;display:block;margin-bottom:.5rem;color:var(--muted);}
 
-  /* SEC TITLE */
   .sec-title{font-size:10px;font-weight:500;letter-spacing:.09em;text-transform:uppercase;color:var(--accent);margin-bottom:.9rem;padding-bottom:6px;border-bottom:0.5px solid var(--border);}
   .section{margin-bottom:1.75rem;}
-
-  /* CV HEADER */
   .cv-header{display:flex;justify-content:space-between;align-items:flex-start;padding-bottom:1.5rem;border-bottom:0.5px solid var(--border);margin-bottom:1.75rem;gap:1rem;flex-wrap:wrap;}
   .cv-name{font-size:22px;font-weight:500;color:var(--ink);line-height:1.2;}
   .cv-role{font-size:14px;color:var(--muted);margin-top:4px;}
-  .cv-contact{text-align:right;}
   .cv-contact-item{display:flex;align-items:center;justify-content:flex-end;gap:5px;font-size:12px;color:var(--muted);margin-bottom:5px;}
   .cv-contact-item i{font-size:13px;color:var(--accent);}
-
-  /* RESUMEN */
   .resumen-text{font-size:13px;color:var(--muted);line-height:1.75;}
-
-  /* MÉTRICAS */
   .metrics{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:10px;margin-bottom:1.75rem;}
   .metric{background:var(--surface);border-radius:10px;padding:.9rem 1rem;border:0.5px solid var(--border);}
   .metric-label{font-size:11px;color:var(--muted);margin-bottom:4px;}
   .metric-val{font-size:22px;font-weight:500;color:var(--ink);}
-
-  /* IDIOMAS */
   .lang-item{display:flex;justify-content:space-between;align-items:center;margin-bottom:8px;}
   .lang-name{font-size:13px;color:var(--ink);}
   .lang-level{font-size:11px;color:var(--muted);background:var(--bg);padding:3px 8px;border-radius:20px;border:0.5px solid var(--border);}
-
-  /* EXPERIENCIA */
   .exp-item{margin-bottom:1.25rem;padding-bottom:1.25rem;border-bottom:0.5px solid var(--border);}
   .exp-item:last-child{border-bottom:none;padding-bottom:0;}
   .exp-top{display:flex;justify-content:space-between;align-items:baseline;gap:.5rem;flex-wrap:wrap;}
   .exp-company{font-size:13px;font-weight:500;color:var(--ink);}
-  .exp-period{font-size:11px;color:var(--hint);font-family:var(--mono);white-space:nowrap;}
+  .exp-period{font-size:11px;color:var(--hint);font-family:var(--mono);}
   .exp-role{font-size:12px;color:var(--accent-text);margin:2px 0 5px;font-weight:500;}
   .exp-desc{font-size:12px;color:var(--muted);line-height:1.65;}
-
-  /* FORMACIÓN */
   .form-item{margin-bottom:1rem;}
   .form-title{font-size:13px;font-weight:500;color:var(--ink);display:flex;align-items:center;gap:6px;flex-wrap:wrap;}
   .form-inst{font-size:12px;color:var(--muted);}
   .form-year{font-size:11px;color:var(--hint);font-family:var(--mono);}
   .verified{display:inline-flex;align-items:center;gap:3px;font-size:10px;color:var(--green-text);background:var(--green-bg);padding:2px 7px;border-radius:20px;}
-
-  /* APTITUDES */
   .skills-tags{display:flex;flex-wrap:wrap;gap:5px;margin-bottom:1.25rem;}
   .skill-tag{font-size:11px;color:var(--ink);background:var(--bg);border:0.5px solid var(--border);border-radius:20px;padding:4px 9px;}
   .skill-soft{background:var(--accent-light);color:var(--accent-text);border-color:transparent;}
-
-  /* TÍTULOS */
   .titles-notice{display:flex;align-items:center;gap:7px;font-size:13px;color:var(--muted);padding:.75rem 1rem;background:var(--accent-light);border-radius:10px;margin-bottom:1.5rem;}
   .titles-notice i{color:var(--accent);}
   .titles-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:1rem;}
-  .title-card{background:var(--surface);border:0.5px solid var(--border-md);border-radius:14px;padding:1.1rem;cursor:pointer;transition:border-color .15s;}
+  .title-card{background:var(--surface);border:0.5px solid var(--border-md);border-radius:14px;padding:1.1rem;transition:border-color .15s;}
   .title-card:hover{border-color:var(--accent);}
   .title-icon{font-size:22px;color:var(--accent);margin-bottom:8px;}
   .title-name{font-size:13px;font-weight:500;color:var(--ink);margin-bottom:3px;line-height:1.4;}
@@ -146,8 +108,6 @@
   .title-btn{display:flex;align-items:center;justify-content:center;gap:5px;font-size:12px;color:var(--accent);background:var(--accent-light);border:none;border-radius:8px;padding:6px 10px;cursor:pointer;font-family:var(--font);margin-top:10px;width:100%;transition:opacity .15s;}
   .title-btn:hover{opacity:.8;}
   .title-btn:disabled{opacity:.4;cursor:default;}
-
-  /* PDF OVERLAY */
   .pdf-overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,.6);z-index:999;align-items:center;justify-content:center;padding:1rem;}
   .pdf-overlay.open{display:flex;}
   .pdf-modal{background:var(--surface);border-radius:14px;width:100%;max-width:760px;max-height:90vh;border:0.5px solid var(--border-md);overflow:hidden;display:flex;flex-direction:column;}
@@ -158,12 +118,11 @@
   .pdf-frame{flex:1;min-height:500px;border:none;background:var(--bg);}
   .pdf-nourl{padding:2.5rem;text-align:center;color:var(--muted);font-size:13px;line-height:1.7;}
   .pdf-nourl i{font-size:32px;color:var(--accent);display:block;margin-bottom:.75rem;}
-  .pdf-badge{display:inline-flex;align-items:center;gap:4px;font-size:11px;color:var(--accent-text);background:var(--accent-light);padding:4px 10px;border-radius:20px;margin-top:.75rem;}
-
+  .pdf-badge-wrap{padding:.5rem 1rem .75rem;text-align:center;}
+  .pdf-badge{display:inline-flex;align-items:center;gap:4px;font-size:11px;color:var(--accent-text);background:var(--accent-light);padding:4px 10px;border-radius:20px;}
   @media(max-width:600px){
     .nav-tabs{display:none;}
     .cv-header{flex-direction:column;}
-    .cv-contact{text-align:left;}
     .cv-contact-item{justify-content:flex-start;}
   }
 </style>
@@ -172,7 +131,7 @@
 
 <!-- LOGIN -->
 <div id="screen-login" class="screen active">
-  <div id="screen-login" style="display:flex;align-items:center;justify-content:center;min-height:100vh;padding:2rem;">
+  <div class="login-wrap">
     <div class="login-card">
       <div class="login-brand">
         <div class="login-brand-icon"><i class="ti ti-user-circle"></i></div>
@@ -209,31 +168,11 @@
         <button class="nav-logout" onclick="logout()">Salir</button>
       </div>
     </nav>
-
-    <!-- PERFIL -->
-    <div id="tab-perfil" class="tab active">
-      <div id="perfil-content"><div class="loading"><i class="ti ti-refresh"></i>Cargando datos...</div></div>
-    </div>
-
-    <!-- EXPERIENCIA -->
-    <div id="tab-experiencia" class="tab">
-      <div id="experiencia-content"><div class="loading"><i class="ti ti-refresh"></i>Cargando datos...</div></div>
-    </div>
-
-    <!-- FORMACIÓN -->
-    <div id="tab-formacion" class="tab">
-      <div id="formacion-content"><div class="loading"><i class="ti ti-refresh"></i>Cargando datos...</div></div>
-    </div>
-
-    <!-- APTITUDES -->
-    <div id="tab-aptitudes" class="tab">
-      <div id="aptitudes-content"><div class="loading"><i class="ti ti-refresh"></i>Cargando datos...</div></div>
-    </div>
-
-    <!-- TÍTULOS -->
-    <div id="tab-titulos" class="tab">
-      <div id="titulos-content"><div class="loading"><i class="ti ti-refresh"></i>Cargando datos...</div></div>
-    </div>
+    <div id="tab-perfil" class="tab active"><div class="loading"><i class="ti ti-refresh"></i>Cargando datos...</div></div>
+    <div id="tab-experiencia" class="tab"><div class="loading"><i class="ti ti-refresh"></i>Cargando datos...</div></div>
+    <div id="tab-formacion" class="tab"><div class="loading"><i class="ti ti-refresh"></i>Cargando datos...</div></div>
+    <div id="tab-aptitudes" class="tab"><div class="loading"><i class="ti ti-refresh"></i>Cargando datos...</div></div>
+    <div id="tab-titulos" class="tab"><div class="loading"><i class="ti ti-refresh"></i>Cargando datos...</div></div>
   </div>
 </div>
 
@@ -243,7 +182,7 @@
     <div class="pdf-mhead">
       <div class="pdf-mtitle">
         <i class="ti ti-file-type-pdf" style="color:var(--accent);font-size:17px"></i>
-        <span id="pdf-modal-name">Documento</span>
+        <span id="pdf-modal-name"></span>
       </div>
       <button class="pdf-close" onclick="closePdf()"><i class="ti ti-x"></i></button>
     </div>
@@ -253,53 +192,47 @@
 
 <script>
 const SHEET_ID = '1aML9amLBq-NHVNHzuM15C4nXib3wPtj8QfPn_MTZDik';
-const BASE = `https://docs.google.com/spreadsheets/d/${SHEET_ID}/gviz/tq?tqx=out:csv&sheet=`;
 
-let data = {};
-let loaded = false;
-
-async function fetchSheet(sheet) {
-  const r = await fetch(BASE + encodeURIComponent(sheet));
-  const text = await r.text();
-  return parseCSV(text);
+// Lee cada hoja usando el endpoint gviz/tq con callback JSONP — evita CORS
+function fetchSheet(sheetName) {
+  return new Promise((resolve, reject) => {
+    const cb = 'cb_' + sheetName.replace(/\s/g,'_') + '_' + Date.now();
+    const url = `https://docs.google.com/spreadsheets/d/${SHEET_ID}/gviz/tq?tqx=out:json&tq=select+*&sheet=${encodeURIComponent(sheetName)}&callback=${cb}`;
+    const script = document.createElement('script');
+    script.src = url;
+    window[cb] = function(json) {
+      delete window[cb];
+      document.head.removeChild(script);
+      try {
+        const rows = json.table.rows;
+        const cols = json.table.cols.map(c => c.label);
+        const result = rows.map(r => {
+          const obj = {};
+          cols.forEach((c, i) => {
+            obj[c] = r.c[i] ? (r.c[i].v !== null && r.c[i].v !== undefined ? String(r.c[i].v) : '') : '';
+          });
+          return obj;
+        });
+        resolve(result);
+      } catch(e) { reject(e); }
+    };
+    script.onerror = () => { delete window[cb]; reject(new Error('Error cargando ' + sheetName)); };
+    document.head.appendChild(script);
+  });
 }
 
-function parseCSV(text) {
-  const rows = [];
-  const lines = text.split('\n');
-  for (let line of lines) {
-    if (!line.trim()) continue;
-    const cols = [];
-    let cur = '', inQ = false;
-    for (let i = 0; i < line.length; i++) {
-      const c = line[i];
-      if (c === '"') { inQ = !inQ; continue; }
-      if (c === ',' && !inQ) { cols.push(cur.trim()); cur = ''; }
-      else cur += c;
-    }
-    cols.push(cur.trim());
-    rows.push(cols);
-  }
-  return rows;
-}
-
-function csvToObj(rows) {
+// Para Perfil (clave-valor): convierte array de objetos a un objeto plano
+function toKV(rows) {
   const obj = {};
-  for (const row of rows) {
-    if (row[0]) obj[row[0].trim()] = (row[1] || '').trim();
-  }
+  rows.forEach(r => {
+    const keys = Object.keys(r);
+    if (keys.length >= 2) obj[r[keys[0]]] = r[keys[1]];
+  });
   return obj;
 }
 
-function csvToArr(rows) {
-  if (rows.length < 2) return [];
-  const headers = rows[0].map(h => h.trim());
-  return rows.slice(1).map(row => {
-    const obj = {};
-    headers.forEach((h, i) => obj[h] = (row[i] || '').trim());
-    return obj;
-  });
-}
+let data = {};
+let loaded = false;
 
 async function loadAllData() {
   const [perfil, exp, form, apt, tit] = await Promise.all([
@@ -309,39 +242,40 @@ async function loadAllData() {
     fetchSheet('Aptitudes'),
     fetchSheet('Titulos'),
   ]);
-  data.perfil = csvToObj(perfil);
-  data.experiencia = csvToArr(exp);
-  data.formacion = csvToArr(form);
-  data.aptitudes = csvToArr(apt);
-  data.titulos = csvToArr(tit);
+  data.perfil     = toKV(perfil);
+  data.experiencia = exp;
+  data.formacion  = form;
+  data.aptitudes  = apt;
+  data.titulos    = tit;
   loaded = true;
 }
 
 function renderPerfil() {
   const p = data.perfil;
-  document.getElementById('perfil-content').innerHTML = `
+  const numCert = data.formacion.filter(f => (f.tipo||f['tipo']||'').toLowerCase() === 'certificacion').length;
+  document.getElementById('tab-perfil').innerHTML = `
     <div class="cv-header">
       <div>
-        <div class="cv-name">${p.nombre || ''}</div>
-        <div class="cv-role">${p.rol || ''}</div>
+        <div class="cv-name">${p.nombre||''}</div>
+        <div class="cv-role">${p.rol||''}</div>
       </div>
-      <div class="cv-contact">
-        <div class="cv-contact-item"><i class="ti ti-mail"></i> ${p.email || ''}</div>
-        <div class="cv-contact-item"><i class="ti ti-phone"></i> ${p.telefono || ''}</div>
-        <div class="cv-contact-item"><i class="ti ti-map-pin"></i> ${p.ubicacion || ''}</div>
-        <div class="cv-contact-item"><i class="ti ti-calendar"></i> ${p.fecha_nacimiento || ''}</div>
+      <div>
+        <div class="cv-contact-item"><i class="ti ti-mail"></i> ${p.email||''}</div>
+        <div class="cv-contact-item"><i class="ti ti-phone"></i> ${p.telefono||''}</div>
+        <div class="cv-contact-item"><i class="ti ti-map-pin"></i> ${p.ubicacion||''}</div>
+        <div class="cv-contact-item"><i class="ti ti-calendar"></i> ${p.fecha_nacimiento||''}</div>
       </div>
     </div>
     <div class="section">
       <div class="sec-title">Resumen profesional</div>
-      <p class="resumen-text">${p.resumen || ''}</p>
+      <p class="resumen-text">${p.resumen||''}</p>
     </div>
     <div class="section">
       <div class="sec-title">Datos clave</div>
       <div class="metrics">
         <div class="metric"><div class="metric-label">Años de experiencia</div><div class="metric-val">+15</div></div>
         <div class="metric"><div class="metric-label">Empresas / Organizaciones</div><div class="metric-val">${data.experiencia.length}</div></div>
-        <div class="metric"><div class="metric-label">Certificaciones y cursos</div><div class="metric-val">${data.formacion.filter(f=>f.tipo==='certificacion').length}</div></div>
+        <div class="metric"><div class="metric-label">Certificaciones y cursos</div><div class="metric-val">${numCert}</div></div>
         <div class="metric"><div class="metric-label">Idiomas</div><div class="metric-val">ES · EN</div></div>
       </div>
     </div>
@@ -362,96 +296,85 @@ function renderExperiencia() {
       <div class="exp-role">${e.cargo||''}</div>
       <div class="exp-desc">${e.descripcion||''}</div>
     </div>`).join('');
-  document.getElementById('experiencia-content').innerHTML = `
-    <div class="sec-title">Historial laboral</div>${items}`;
+  document.getElementById('tab-experiencia').innerHTML =
+    `<div class="sec-title">Historial laboral</div>${items}`;
 }
 
 function renderFormacion() {
-  const edu = data.formacion.filter(f => f.tipo === 'educacion');
-  const cert = data.formacion.filter(f => f.tipo === 'certificacion');
-  const renderItem = f => `
+  const edu  = data.formacion.filter(f => (f.tipo||'').toLowerCase() === 'educacion');
+  const cert = data.formacion.filter(f => (f.tipo||'').toLowerCase() === 'certificacion');
+  const item = f => `
     <div class="form-item">
-      <div class="form-title">${f.titulo||''} <span class="verified"><i class="ti ti-circle-check" style="font-size:10px"></i> Verificado</span></div>
+      <div class="form-title">${f.titulo||f['titulo']||''} <span class="verified"><i class="ti ti-circle-check" style="font-size:10px"></i> Verificado</span></div>
       <div class="form-inst">${f.institucion||''}</div>
-      <div class="form-year">${f.año||''}</div>
+      <div class="form-year">${f['año']||f.ano||''}</div>
     </div>`;
-  document.getElementById('formacion-content').innerHTML = `
-    <div class="section"><div class="sec-title">Educación reglada</div>${edu.map(renderItem).join('')}</div>
-    <div class="section"><div class="sec-title">Certificaciones y cursos</div>${cert.map(renderItem).join('')}</div>`;
+  document.getElementById('tab-formacion').innerHTML = `
+    <div class="section"><div class="sec-title">Educación reglada</div>${edu.map(item).join('')}</div>
+    <div class="section"><div class="sec-title">Certificaciones y cursos</div>${cert.map(item).join('')}</div>`;
 }
 
 function renderAptitudes() {
-  const tec = data.aptitudes.filter(a => a.categoria === 'tecnica');
-  const ges = data.aptitudes.filter(a => a.categoria === 'gestion');
-  const per = data.aptitudes.filter(a => a.categoria === 'personal');
+  const tec = data.aptitudes.filter(a => (a.categoria||'').toLowerCase() === 'tecnica');
+  const ges = data.aptitudes.filter(a => (a.categoria||'').toLowerCase() === 'gestion');
+  const per = data.aptitudes.filter(a => (a.categoria||'').toLowerCase() === 'personal');
   const tags = (arr, soft) => arr.map(a =>
     `<span class="skill-tag${soft?' skill-soft':''}">${a.aptitud||''}</span>`).join('');
-  document.getElementById('aptitudes-content').innerHTML = `
+  document.getElementById('tab-aptitudes').innerHTML = `
     <div class="section"><div class="sec-title">Competencias técnicas</div><div class="skills-tags">${tags(tec,false)}</div></div>
     <div class="section"><div class="sec-title">Habilidades de gestión</div><div class="skills-tags">${tags(ges,true)}</div></div>
     <div class="section"><div class="sec-title">Habilidades personales</div><div class="skills-tags">${tags(per,true)}</div></div>`;
 }
 
+function getIcon(t) {
+  const n = (t.nombre||'').toLowerCase();
+  if ((t.tipo||'').toLowerCase().includes('título')) return 'ti-school';
+  if (n.includes('english') || n.includes('inglés')) return 'ti-language';
+  if (n.includes('cloud')) return 'ti-cloud';
+  if (n.includes('ia') || n.includes('gemini') || n.includes('prompting')) return 'ti-brain';
+  if (n.includes('proyecto') || n.includes('agile')) return 'ti-chart-gantt';
+  if (n.includes('administrat')) return 'ti-building';
+  return 'ti-certificate';
+}
+
+function toPdfEmbed(url) {
+  if (!url) return '';
+  const m = url.match(/\/d\/([a-zA-Z0-9_-]+)/);
+  return m ? `https://drive.google.com/file/d/${m[1]}/preview` : url;
+}
+
 function renderTitulos() {
-  const cards = data.titulos.map((t, i) => {
-    const hasUrl = t.url_pdf && t.url_pdf.trim() !== '';
-    const icon = t.tipo === 'Título oficial' ? 'ti-school' :
-                 t.nombre.toLowerCase().includes('inglés') || t.nombre.toLowerCase().includes('english') ? 'ti-language' :
-                 t.nombre.toLowerCase().includes('cloud') ? 'ti-cloud' :
-                 t.nombre.toLowerCase().includes('ia') || t.nombre.toLowerCase().includes('gemini') ? 'ti-brain' :
-                 t.nombre.toLowerCase().includes('proyecto') || t.nombre.toLowerCase().includes('agile') ? 'ti-chart-gantt' :
-                 t.nombre.toLowerCase().includes('administrat') ? 'ti-building' : 'ti-certificate';
+  const cards = data.titulos.map(t => {
+    const hasUrl = (t.url_pdf||'').trim() !== '';
+    const embedUrl = toPdfEmbed(t.url_pdf||'');
+    const safeName = (t.nombre||'').replace(/'/g,"\\'");
+    const safeUrl  = embedUrl.replace(/'/g,"\\'");
     return `
     <div class="title-card">
-      <div class="title-icon"><i class="ti ${icon}"></i></div>
+      <div class="title-icon"><i class="ti ${getIcon(t)}"></i></div>
       <div class="title-name">${t.nombre||''}</div>
       <div class="title-inst">${t.institucion||''}</div>
       <div class="title-meta">
-        <div class="title-year">${t.año||''}</div>
+        <div class="title-year">${t['año']||t.ano||''}</div>
         <div class="title-badge">${t.tipo||'Certificado'}</div>
       </div>
-      <button class="title-btn" ${hasUrl?'':'disabled'} onclick="${hasUrl?`openPdf('${t.nombre}','${toPdfEmbed(t.url_pdf)}')`:''}" >
+      <button class="title-btn" ${hasUrl?'':'disabled'}
+        onclick="${hasUrl?`openPdf('${safeName}','${safeUrl}')`:''}" >
         <i class="ti ${hasUrl?'ti-eye':'ti-clock'}"></i>
         ${hasUrl?'Ver documento':'PDF pendiente'}
       </button>
     </div>`;
   }).join('');
-  document.getElementById('titulos-content').innerHTML = `
+  document.getElementById('tab-titulos').innerHTML = `
     <div class="titles-notice"><i class="ti ti-shield-check"></i> Documentos en modo solo lectura. No es posible descargar ni modificar los archivos.</div>
     <div class="titles-grid">${cards}</div>`;
 }
 
-function toPdfEmbed(url) {
-  if (!url) return '';
-  const match = url.match(/\/d\/([a-zA-Z0-9_-]+)/);
-  if (match) return `https://drive.google.com/file/d/${match[1]}/preview`;
-  return url;
-}
-
-function openPdf(name, embedUrl) {
-  document.getElementById('pdf-modal-name').textContent = name;
-  const body = document.getElementById('pdf-modal-body');
-  if (embedUrl) {
-    body.innerHTML = `<iframe class="pdf-frame" src="${embedUrl}" allowfullscreen></iframe>
-    <div style="padding:.5rem 1rem .75rem;text-align:center;">
-      <span class="pdf-badge"><i class="ti ti-shield-lock" style="font-size:11px"></i> Visualización protegida · Solo lectura</span>
-    </div>`;
-  } else {
-    body.innerHTML = `<div class="pdf-nourl"><i class="ti ti-file-off"></i>Este documento aún no tiene PDF vinculado.<br>El propietario lo añadirá próximamente.</div>`;
-  }
-  document.getElementById('pdf-overlay').classList.add('open');
-}
-
-function closePdf() {
-  document.getElementById('pdf-overlay').classList.remove('open');
-  document.getElementById('pdf-modal-body').innerHTML = '';
-}
-
-function switchTab(tab, el) {
-  document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
-  document.querySelectorAll('.nav-tab').forEach(t => t.classList.remove('active'));
-  document.getElementById('tab-' + tab).classList.add('active');
-  if (el) el.classList.add('active');
+function showError(msg) {
+  ['perfil','experiencia','formacion','aptitudes','titulos'].forEach(id => {
+    document.getElementById('tab-'+id).innerHTML =
+      `<div class="error-msg"><i class="ti ti-alert-circle"></i>${msg}</div>`;
+  });
 }
 
 async function enterPortfolio() {
@@ -466,8 +389,8 @@ async function enterPortfolio() {
       renderAptitudes();
       renderTitulos();
     } catch(e) {
-      document.getElementById('perfil-content').innerHTML =
-        '<div class="loading" style="color:var(--muted)"><i class="ti ti-alert-circle" style="animation:none"></i>Error al cargar los datos. Verifica que el Sheets esté publicado.</div>';
+      showError('Error al cargar los datos. Verifica que el Sheets esté publicado en la web (Archivo → Compartir → Publicar en la web).');
+      console.error(e);
     }
   }
 }
@@ -475,6 +398,28 @@ async function enterPortfolio() {
 function logout() {
   document.getElementById('screen-cv').classList.remove('active');
   document.getElementById('screen-login').classList.add('active');
+}
+
+function switchTab(tab, el) {
+  document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+  document.querySelectorAll('.nav-tab').forEach(t => t.classList.remove('active'));
+  document.getElementById('tab-'+tab).classList.add('active');
+  if (el) el.classList.add('active');
+}
+
+function openPdf(name, embedUrl) {
+  document.getElementById('pdf-modal-name').textContent = name;
+  const body = document.getElementById('pdf-modal-body');
+  body.innerHTML = embedUrl
+    ? `<iframe class="pdf-frame" src="${embedUrl}" allowfullscreen></iframe>
+       <div class="pdf-badge-wrap"><span class="pdf-badge"><i class="ti ti-shield-lock" style="font-size:11px"></i> Visualización protegida · Solo lectura</span></div>`
+    : `<div class="pdf-nourl"><i class="ti ti-file-off"></i>Este documento aún no tiene PDF vinculado.</div>`;
+  document.getElementById('pdf-overlay').classList.add('open');
+}
+
+function closePdf() {
+  document.getElementById('pdf-overlay').classList.remove('open');
+  document.getElementById('pdf-modal-body').innerHTML = '';
 }
 
 document.getElementById('pdf-overlay').addEventListener('click', function(e) {
