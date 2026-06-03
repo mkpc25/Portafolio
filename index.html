@@ -7,11 +7,121 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@3.10.0/tabler-icons.min.css">
+
+<script>
+/* ============================================================
+   PANEL DE DATOS — EDITA AQUÍ PARA ACTUALIZAR EL PORTAFOLIO
+   ============================================================
+   Para añadir un puesto: copia una línea de experiencia y edítala.
+   Para añadir un curso:  copia una línea de formacion y edítala.
+   Para añadir un título: copia una línea de titulos y edítala.
+   Para vincular un PDF:  pon el enlace de Google Drive en url_pdf.
+   ============================================================ */
+
+const DATOS = {
+
+  perfil: {
+    nombre:           "Martha Karina Pardillo Castañeda",
+    rol:              "Ingeniera en Ciencias Informáticas · Gestión Administrativa y TI",
+    email:            "karina.pardillo@gmail.com",
+    telefono:         "603 547 568",
+    ubicacion:        "La Palma, Santa Cruz de Tenerife",
+    fecha_nacimiento: "23/06/1984",
+    resumen:          "Ingeniera en Ciencias Informáticas con más de 15 años de experiencia en el sector tecnológico y la gestión administrativa. Experiencia en auditoría de redes, dirección de equipos, desarrollo de software, soporte técnico, actividades administrativas, ventas y atención al cliente. Capaz de asumir responsabilidades con solvencia, tomar decisiones y adaptarse a nuevos entornos. Actualmente en proceso de actualización y ampliación de competencias mediante formación continua, con especial enfoque en IA, gestión administrativa y de proyectos y herramientas digitales.",
+    idioma_1: "Español",  nivel_1: "Nativo",
+    idioma_2: "Inglés",   nivel_2: "A2 · Básico"
+  },
+
+  experiencia: [
+    { empresa: "Oficina de Seguridad para las Redes Informáticas",                       cargo: "Especialista General · Cuba",                          periodo: "10/2007 – 05/2010 · 2 a. 8 m.", descripcion: "Auditorías y controles de seguridad en redes informáticas en el sector empresarial." },
+    { empresa: "Empresa de Correos de Cuba",                                              cargo: "Subdirectora de Telemática · Cuba",                     periodo: "11/2010 – 02/2014 · 3 a. 4 m.", descripcion: "Dirección general del grupo de informática, gestión, administración, soporte y logística de toda la red informática del territorio." },
+    { empresa: "DESOFT — Empresa de Aplicaciones Informáticas",                          cargo: "Especialista Principal · Cuba",                         periodo: "02/2014 – 03/2016 · 2 a. 2 m.", descripcion: "Desarrollo de software, gestión de proyectos, implementación y soporte. Labores administrativas en el área de dirección." },
+    { empresa: "Empresa Pecuaria Managuaco",                                              cargo: "Directora — Puesto de Dirección y Análisis · Cuba",     periodo: "03/2016 – 09/2017 · 1 a. 7 m.", descripcion: "Gestión y análisis de información diaria de producciones. Elaboración de informes y reportes para la toma de decisiones. Resolución de problemas, atención a incidencias y uso de sistemas informáticos." },
+    { empresa: "Oficina Territorial de Control — Ministerio de Informática y Comunicaciones", cargo: "Especialista General · Cuba",                      periodo: "03/2019 – 07/2022 · 3 a. 5 m.", descripcion: "Actividades administrativas y logísticas en el organismo de control ministerial." },
+    { empresa: "Servicell",                                                               cargo: "Especialista General · Cuba",                          periodo: "09/2022 – 06/2023 · 10 m.",     descripcion: "Venta y servicios de dispositivos móviles y computadoras. Mantenimiento, reparación e instalación de equipos." },
+    { empresa: "Empresa Eléctrica",                                                       cargo: "Especialista A en Ciencias de la Computación · Cuba",  periodo: "07/2023 – 08/2024 · 1 a. 2 m.", descripcion: "Desarrollo, soporte e implementación de software vinculado al departamento comercial." }
+  ],
+
+  formacion: [
+    // tipo: "educacion" o "certificacion"
+    { titulo: "Ingeniera en Ciencias Informáticas",                          institucion: "Universidad de Ciencias Informáticas — La Habana, Cuba",          anio: "2002 – 2007", tipo: "educacion" },
+    { titulo: "Competencias Clave Nivel 3 — Matemática, Español e Inglés",  institucion: "Guayafanta — Santa Cruz de La Palma, TF",                          anio: "2026",        tipo: "educacion" },
+    { titulo: "Auxiliar de Administrativo",                                  institucion: "CARPE DIEM — Online",                                              anio: "2025",        tipo: "certificacion" },
+    { titulo: "English Certificate A2 Elementary",                           institucion: "EFSET — Online",                                                   anio: "2025",        tipo: "certificacion" },
+    { titulo: "Introducción al Secretariado",                                institucion: "CARPE DIEM — Online",                                              anio: "2025",        tipo: "certificacion" },
+    { titulo: "Recepcionista",                                               institucion: "CARPE DIEM — Online",                                              anio: "2025",        tipo: "certificacion" },
+    { titulo: "Atención al Cliente",                                         institucion: "CARPE DIEM — Online",                                              anio: "2025",        tipo: "certificacion" },
+    { titulo: "Domina la IA con Gemini",                                     institucion: "Google Actívate — Online",                                         anio: "2026",        tipo: "certificacion" },
+    { titulo: "Gestión de Proyectos y Fundamentos de Metodología Agile",     institucion: "Santander Open Academy — Online",                                  anio: "2026",        tipo: "certificacion" },
+    { titulo: "Gestión Efectiva de Proyectos y Equipos",                     institucion: "Santander Open Academy — Online",                                  anio: "2026",        tipo: "certificacion" },
+    { titulo: "Cloud Computing",                                             institucion: "Google Actívate — Online",                                         anio: "2026",        tipo: "certificacion" },
+    { titulo: "Liderazgo",                                                   institucion: "Santander Open Academy — Online",                                  anio: "2026",        tipo: "certificacion" },
+    { titulo: "Negociación",                                                 institucion: "Santander Open Academy / ESADE — Online",                          anio: "2026",        tipo: "certificacion" },
+    { titulo: "Sistema de Gestión Documental",                               institucion: "Udemy — Online",                                                   anio: "2026",        tipo: "certificacion" },
+    { titulo: "IA y su Aplicación Práctica al Entorno Laboral",              institucion: "Universidad de La Laguna — Tenerife",                              anio: "2026",        tipo: "certificacion" },
+    { titulo: "Prompting Responsable: Maximiza la IA en tu Negocio",         institucion: "Santander Open Academy (Microsoft / Founderz) — Online",           anio: "2026",        tipo: "certificacion" },
+    { titulo: "Gestión Administrativa en Oficinas",                          institucion: "Academias Galilei — Los Llanos de Aridane",                        anio: "2026",        tipo: "certificacion" }
+  ],
+
+  aptitudes: [
+    // categoria: "tecnica" | "gestion" | "personal"
+    { aptitud: "Sistemas Operativos (Windows, Linux)", categoria: "tecnica" },
+    { aptitud: "Python",                               categoria: "tecnica" },
+    { aptitud: "C++",                                  categoria: "tecnica" },
+    { aptitud: "MySQL",                                categoria: "tecnica" },
+    { aptitud: "PostgreSQL",                           categoria: "tecnica" },
+    { aptitud: "Fundamentos de Redes",                 categoria: "tecnica" },
+    { aptitud: "Inglés técnico",                       categoria: "tecnica" },
+    { aptitud: "Integración con IA",                   categoria: "tecnica" },
+    { aptitud: "Cloud Computing",                      categoria: "tecnica" },
+    { aptitud: "Metodología Agile",                    categoria: "tecnica" },
+    { aptitud: "Análisis de requisitos funcionales",   categoria: "tecnica" },
+    { aptitud: "Gestión documental",                   categoria: "tecnica" },
+    { aptitud: "Elaboración de informes",              categoria: "tecnica" },
+    { aptitud: "Gestión administrativa y comercial",   categoria: "gestion" },
+    { aptitud: "Gestión de proyectos",                 categoria: "gestion" },
+    { aptitud: "Liderazgo",                            categoria: "gestion" },
+    { aptitud: "Toma de decisiones",                   categoria: "gestion" },
+    { aptitud: "Organización",                         categoria: "gestion" },
+    { aptitud: "Gestión de tiempo y prioridades",      categoria: "gestion" },
+    { aptitud: "Dotes de mando",                       categoria: "gestion" },
+    { aptitud: "Orientación a resultados",             categoria: "gestion" },
+    { aptitud: "Negociación",                          categoria: "gestion" },
+    { aptitud: "Excelente atención al cliente",        categoria: "personal" },
+    { aptitud: "Excelente expresión oral y escrita",   categoria: "personal" },
+    { aptitud: "Trabajo en equipo multidisciplinar",   categoria: "personal" },
+    { aptitud: "Autonomía",                            categoria: "personal" },
+    { aptitud: "Responsabilidad",                      categoria: "personal" },
+    { aptitud: "Compromiso",                           categoria: "personal" },
+    { aptitud: "Adaptabilidad a nuevas tecnologías",   categoria: "personal" },
+    { aptitud: "Carácter resolutivo",                  categoria: "personal" },
+    { aptitud: "Perfil eficaz y resolutivo",           categoria: "personal" },
+    { aptitud: "Capacidad de aprendizaje continuo",    categoria: "personal" }
+  ],
+
+  titulos: [
+    // url_pdf: pega aquí el enlace de Google Drive cuando lo tengas
+    { nombre: "Ingeniera en Ciencias Informáticas",               institucion: "Universidad de Ciencias Informáticas — La Habana, Cuba", anio: "2007", tipo: "Título oficial", url_pdf: "" },
+    { nombre: "Competencias Clave Nivel 3",                       institucion: "Guayafanta — La Palma, TF",                             anio: "2026", tipo: "Certificado",    url_pdf: "" },
+    { nombre: "English Certificate A2 Elementary",                institucion: "EFSET — Online",                                        anio: "2025", tipo: "Certificación",  url_pdf: "" },
+    { nombre: "Auxiliar de Administrativo",                       institucion: "CARPE DIEM — Online",                                   anio: "2025", tipo: "Certificado",    url_pdf: "" },
+    { nombre: "Cloud Computing",                                  institucion: "Google Actívate — Online",                              anio: "2026", tipo: "Certificado",    url_pdf: "" },
+    { nombre: "Domina la IA con Gemini",                          institucion: "Google Actívate — Online",                              anio: "2026", tipo: "Certificado",    url_pdf: "" },
+    { nombre: "Gestión de Proyectos y Metodología Agile",         institucion: "Santander Open Academy — Online",                       anio: "2026", tipo: "Certificado",    url_pdf: "" },
+    { nombre: "IA y su Aplicación Práctica al Entorno Laboral",   institucion: "Universidad de La Laguna — Tenerife",                   anio: "2026", tipo: "Certificado",    url_pdf: "" },
+    { nombre: "Gestión Administrativa en Oficinas",               institucion: "Academias Galilei — Los Llanos de Aridane",             anio: "2026", tipo: "Certificado",    url_pdf: "" }
+  ]
+
+};
+/* ============================================================
+   FIN DEL PANEL DE DATOS
+   ============================================================ */
+</script>
+
 <style>
   *{box-sizing:border-box;margin:0;padding:0;}
   :root{
-    --font:'DM Sans',sans-serif;
-    --mono:'DM Mono',monospace;
+    --font:'DM Sans',sans-serif;--mono:'DM Mono',monospace;
     --ink:#1a1a1a;--muted:#6b6b6b;--hint:#9b9b9b;
     --surface:#ffffff;--bg:#f7f7f5;
     --border:rgba(0,0,0,0.1);--border-md:rgba(0,0,0,0.18);
@@ -27,8 +137,6 @@
   }}
   body{font-family:var(--font);background:var(--bg);color:var(--ink);min-height:100vh;}
   .screen{display:none;}.screen.active{display:block;}
-
-  /* LOGIN */
   .login-wrap{display:flex;align-items:center;justify-content:center;min-height:100vh;padding:2rem;}
   .login-card{width:100%;max-width:400px;background:var(--surface);border:0.5px solid var(--border-md);border-radius:16px;padding:2.25rem 2.25rem 2rem;}
   .login-brand{display:flex;align-items:center;gap:10px;margin-bottom:2rem;}
@@ -40,8 +148,6 @@
   .login-btn{width:100%;padding:11px;background:var(--accent);color:#fff;font-family:var(--font);font-size:14px;font-weight:500;border:none;border-radius:9px;cursor:pointer;transition:opacity .15s;}
   .login-btn:hover{opacity:.88;}
   .login-hint{font-size:11px;color:var(--hint);text-align:center;margin-top:1rem;}
-
-  /* APP */
   .app{max-width:900px;margin:0 auto;padding:0 1.5rem 3rem;}
   .nav{display:flex;justify-content:space-between;align-items:center;padding:1rem 0;border-bottom:0.5px solid var(--border);position:sticky;top:0;background:var(--bg);z-index:10;}
   .nav-brand{display:flex;align-items:center;gap:8px;}
@@ -55,14 +161,7 @@
   .nav-badge{font-size:11px;color:var(--muted);display:flex;align-items:center;gap:4px;}
   .nav-logout{font-size:11px;color:var(--muted);background:none;border:0.5px solid var(--border);border-radius:7px;padding:4px 10px;cursor:pointer;font-family:var(--font);}
   .nav-logout:hover{background:var(--surface);}
-
   .tab{display:none;padding-top:1.75rem;}.tab.active{display:block;}
-  .loading{text-align:center;padding:3rem;color:var(--muted);font-size:13px;}
-  .loading i{font-size:24px;display:block;margin-bottom:.5rem;color:var(--accent);animation:spin 1s linear infinite;}
-  @keyframes spin{to{transform:rotate(360deg)}}
-  .error-msg{text-align:center;padding:2rem;color:var(--muted);font-size:13px;line-height:1.7;}
-  .error-msg i{font-size:24px;display:block;margin-bottom:.5rem;color:var(--muted);}
-
   .sec-title{font-size:10px;font-weight:500;letter-spacing:.09em;text-transform:uppercase;color:var(--accent);margin-bottom:.9rem;padding-bottom:6px;border-bottom:0.5px solid var(--border);}
   .section{margin-bottom:1.75rem;}
   .cv-header{display:flex;justify-content:space-between;align-items:flex-start;padding-bottom:1.5rem;border-bottom:0.5px solid var(--border);margin-bottom:1.75rem;gap:1rem;flex-wrap:wrap;}
@@ -119,16 +218,11 @@
   .pdf-nourl i{font-size:32px;color:var(--accent);display:block;margin-bottom:.75rem;}
   .pdf-badge-wrap{padding:.5rem 1rem .75rem;text-align:center;}
   .pdf-badge{display:inline-flex;align-items:center;gap:4px;font-size:11px;color:var(--accent-text);background:var(--accent-light);padding:4px 10px;border-radius:20px;}
-  @media(max-width:600px){
-    .nav-tabs{display:none;}
-    .cv-header{flex-direction:column;}
-    .cv-contact-item{justify-content:flex-start;}
-  }
+  @media(max-width:600px){.nav-tabs{display:none;}.cv-header{flex-direction:column;}.cv-contact-item{justify-content:flex-start;}}
 </style>
 </head>
 <body>
 
-<!-- LOGIN -->
 <div id="screen-login" class="screen active">
   <div class="login-wrap">
     <div class="login-card">
@@ -147,7 +241,6 @@
   </div>
 </div>
 
-<!-- CV -->
 <div id="screen-cv" class="screen">
   <div class="app">
     <nav class="nav">
@@ -167,15 +260,14 @@
         <button class="nav-logout" onclick="logout()">Salir</button>
       </div>
     </nav>
-    <div id="tab-perfil" class="tab active"><div class="loading"><i class="ti ti-refresh"></i>Cargando datos...</div></div>
-    <div id="tab-experiencia" class="tab"><div class="loading"><i class="ti ti-refresh"></i>Cargando datos...</div></div>
-    <div id="tab-formacion" class="tab"><div class="loading"><i class="ti ti-refresh"></i>Cargando datos...</div></div>
-    <div id="tab-aptitudes" class="tab"><div class="loading"><i class="ti ti-refresh"></i>Cargando datos...</div></div>
-    <div id="tab-titulos" class="tab"><div class="loading"><i class="ti ti-refresh"></i>Cargando datos...</div></div>
+    <div id="tab-perfil" class="tab active"></div>
+    <div id="tab-experiencia" class="tab"></div>
+    <div id="tab-formacion" class="tab"></div>
+    <div id="tab-aptitudes" class="tab"></div>
+    <div id="tab-titulos" class="tab"></div>
   </div>
 </div>
 
-<!-- PDF OVERLAY -->
 <div class="pdf-overlay" id="pdf-overlay">
   <div class="pdf-modal">
     <div class="pdf-mhead">
@@ -190,135 +282,76 @@
 </div>
 
 <script>
-const SHEET_ID = '1aML9amLBq-NHVNHzuM15C4nXib3wPtj8QfPn_MTZDik';
-
-// Lee cada hoja usando el endpoint gviz/tq con callback JSONP — evita CORS
-function fetchSheet(sheetName) {
-  return new Promise((resolve, reject) => {
-    const cb = 'cb_' + sheetName.replace(/\s/g,'_') + '_' + Date.now();
-    const url = `https://docs.google.com/spreadsheets/d/${SHEET_ID}/gviz/tq?tqx=out:json&tq=select+*&sheet=${encodeURIComponent(sheetName)}&callback=${cb}`;
-    const script = document.createElement('script');
-    script.src = url;
-    window[cb] = function(json) {
-      delete window[cb];
-      document.head.removeChild(script);
-      try {
-        const rows = json.table.rows;
-        const cols = json.table.cols.map(c => c.label);
-        const result = rows.map(r => {
-          const obj = {};
-          cols.forEach((c, i) => {
-            obj[c] = r.c[i] ? (r.c[i].v !== null && r.c[i].v !== undefined ? String(r.c[i].v) : '') : '';
-          });
-          return obj;
-        });
-        resolve(result);
-      } catch(e) { reject(e); }
-    };
-    script.onerror = () => { delete window[cb]; reject(new Error('Error cargando ' + sheetName)); };
-    document.head.appendChild(script);
-  });
-}
-
-// Para Perfil (clave-valor): convierte array de objetos a un objeto plano
-function toKV(rows) {
-  const obj = {};
-  rows.forEach(r => {
-    const keys = Object.keys(r);
-    if (keys.length >= 2) obj[r[keys[0]]] = r[keys[1]];
-  });
-  return obj;
-}
-
-let data = {};
-let loaded = false;
-
-async function loadAllData() {
-  const [perfil, exp, form, apt, tit] = await Promise.all([
-    fetchSheet('Perfil'),
-    fetchSheet('Experiencia'),
-    fetchSheet('Formacion'),
-    fetchSheet('Aptitudes'),
-    fetchSheet('Titulos'),
-  ]);
-  data.perfil     = toKV(perfil);
-  data.experiencia = exp;
-  data.formacion  = form;
-  data.aptitudes  = apt;
-  data.titulos    = tit;
-  loaded = true;
-}
-
 function renderPerfil() {
-  const p = data.perfil;
-  const numCert = data.formacion.filter(f => (f.tipo||f['tipo']||'').toLowerCase() === 'certificacion').length;
+  const p = DATOS.perfil;
+  const numCert = DATOS.formacion.filter(f => f.tipo === 'certificacion').length;
   document.getElementById('tab-perfil').innerHTML = `
     <div class="cv-header">
       <div>
-        <div class="cv-name">${p.nombre||''}</div>
-        <div class="cv-role">${p.rol||''}</div>
+        <div class="cv-name">${p.nombre}</div>
+        <div class="cv-role">${p.rol}</div>
       </div>
       <div>
-        <div class="cv-contact-item"><i class="ti ti-mail"></i> ${p.email||''}</div>
-        <div class="cv-contact-item"><i class="ti ti-phone"></i> ${p.telefono||''}</div>
-        <div class="cv-contact-item"><i class="ti ti-map-pin"></i> ${p.ubicacion||''}</div>
-        <div class="cv-contact-item"><i class="ti ti-calendar"></i> ${p.fecha_nacimiento||''}</div>
+        <div class="cv-contact-item"><i class="ti ti-mail"></i> ${p.email}</div>
+        <div class="cv-contact-item"><i class="ti ti-phone"></i> ${p.telefono}</div>
+        <div class="cv-contact-item"><i class="ti ti-map-pin"></i> ${p.ubicacion}</div>
+        <div class="cv-contact-item"><i class="ti ti-calendar"></i> ${p.fecha_nacimiento}</div>
       </div>
     </div>
     <div class="section">
       <div class="sec-title">Resumen profesional</div>
-      <p class="resumen-text">${p.resumen||''}</p>
+      <p class="resumen-text">${p.resumen}</p>
     </div>
     <div class="section">
       <div class="sec-title">Datos clave</div>
       <div class="metrics">
         <div class="metric"><div class="metric-label">Años de experiencia</div><div class="metric-val">+15</div></div>
-        <div class="metric"><div class="metric-label">Empresas / Organizaciones</div><div class="metric-val">${data.experiencia.length}</div></div>
+        <div class="metric"><div class="metric-label">Empresas / Organizaciones</div><div class="metric-val">${DATOS.experiencia.length}</div></div>
         <div class="metric"><div class="metric-label">Certificaciones y cursos</div><div class="metric-val">${numCert}</div></div>
         <div class="metric"><div class="metric-label">Idiomas</div><div class="metric-val">ES · EN</div></div>
       </div>
     </div>
     <div class="section">
       <div class="sec-title">Idiomas</div>
-      <div class="lang-item"><div class="lang-name">${p.idioma_1||'Español'}</div><div class="lang-level">${p.nivel_1||'Nativo'}</div></div>
-      <div class="lang-item"><div class="lang-name">${p.idioma_2||'Inglés'}</div><div class="lang-level">${p.nivel_2||'A2 · Básico'}</div></div>
+      <div class="lang-item"><div class="lang-name">${p.idioma_1}</div><div class="lang-level">${p.nivel_1}</div></div>
+      <div class="lang-item"><div class="lang-name">${p.idioma_2}</div><div class="lang-level">${p.nivel_2}</div></div>
     </div>`;
 }
 
 function renderExperiencia() {
-  const items = data.experiencia.map(e => `
-    <div class="exp-item">
-      <div class="exp-top">
-        <div class="exp-company">${e.empresa||''}</div>
-        <div class="exp-period">${e.periodo||''}</div>
-      </div>
-      <div class="exp-role">${e.cargo||''}</div>
-      <div class="exp-desc">${e.descripcion||''}</div>
-    </div>`).join('');
   document.getElementById('tab-experiencia').innerHTML =
-    `<div class="sec-title">Historial laboral</div>${items}`;
+    `<div class="sec-title">Historial laboral</div>` +
+    DATOS.experiencia.map(e => `
+      <div class="exp-item">
+        <div class="exp-top">
+          <div class="exp-company">${e.empresa}</div>
+          <div class="exp-period">${e.periodo}</div>
+        </div>
+        <div class="exp-role">${e.cargo}</div>
+        <div class="exp-desc">${e.descripcion}</div>
+      </div>`).join('');
 }
 
 function renderFormacion() {
-  const edu  = data.formacion.filter(f => (f.tipo||'').toLowerCase() === 'educacion');
-  const cert = data.formacion.filter(f => (f.tipo||'').toLowerCase() === 'certificacion');
   const item = f => `
     <div class="form-item">
-      <div class="form-title">${f.titulo||f['titulo']||''} <span class="verified"><i class="ti ti-circle-check" style="font-size:10px"></i> Verificado</span></div>
-      <div class="form-inst">${f.institucion||''}</div>
-      <div class="form-year">${f['año']||f.ano||''}</div>
+      <div class="form-title">${f.titulo} <span class="verified"><i class="ti ti-circle-check" style="font-size:10px"></i> Verificado</span></div>
+      <div class="form-inst">${f.institucion}</div>
+      <div class="form-year">${f.anio}</div>
     </div>`;
+  const edu  = DATOS.formacion.filter(f => f.tipo === 'educacion');
+  const cert = DATOS.formacion.filter(f => f.tipo === 'certificacion');
   document.getElementById('tab-formacion').innerHTML = `
     <div class="section"><div class="sec-title">Educación reglada</div>${edu.map(item).join('')}</div>
     <div class="section"><div class="sec-title">Certificaciones y cursos</div>${cert.map(item).join('')}</div>`;
 }
 
 function renderAptitudes() {
-  const tec = data.aptitudes.filter(a => (a.categoria||'').toLowerCase() === 'tecnica');
-  const ges = data.aptitudes.filter(a => (a.categoria||'').toLowerCase() === 'gestion');
-  const per = data.aptitudes.filter(a => (a.categoria||'').toLowerCase() === 'personal');
   const tags = (arr, soft) => arr.map(a =>
-    `<span class="skill-tag${soft?' skill-soft':''}">${a.aptitud||''}</span>`).join('');
+    `<span class="skill-tag${soft?' skill-soft':''}">${a.aptitud}</span>`).join('');
+  const tec = DATOS.aptitudes.filter(a => a.categoria === 'tecnica');
+  const ges = DATOS.aptitudes.filter(a => a.categoria === 'gestion');
+  const per = DATOS.aptitudes.filter(a => a.categoria === 'personal');
   document.getElementById('tab-aptitudes').innerHTML = `
     <div class="section"><div class="sec-title">Competencias técnicas</div><div class="skills-tags">${tags(tec,false)}</div></div>
     <div class="section"><div class="sec-title">Habilidades de gestión</div><div class="skills-tags">${tags(ges,true)}</div></div>
@@ -326,8 +359,8 @@ function renderAptitudes() {
 }
 
 function getIcon(t) {
-  const n = (t.nombre||'').toLowerCase();
-  if ((t.tipo||'').toLowerCase().includes('título')) return 'ti-school';
+  const n = t.nombre.toLowerCase();
+  if (t.tipo === 'Título oficial') return 'ti-school';
   if (n.includes('english') || n.includes('inglés')) return 'ti-language';
   if (n.includes('cloud')) return 'ti-cloud';
   if (n.includes('ia') || n.includes('gemini') || n.includes('prompting')) return 'ti-brain';
@@ -343,24 +376,24 @@ function toPdfEmbed(url) {
 }
 
 function renderTitulos() {
-  const cards = data.titulos.map(t => {
-    const hasUrl = (t.url_pdf||'').trim() !== '';
-    const embedUrl = toPdfEmbed(t.url_pdf||'');
-    const safeName = (t.nombre||'').replace(/'/g,"\\'");
-    const safeUrl  = embedUrl.replace(/'/g,"\\'");
+  const cards = DATOS.titulos.map(t => {
+    const hasUrl = (t.url_pdf || '').trim() !== '';
+    const embed  = toPdfEmbed(t.url_pdf || '');
+    const sn = t.nombre.replace(/'/g, "\\'");
+    const su = embed.replace(/'/g, "\\'");
     return `
     <div class="title-card">
       <div class="title-icon"><i class="ti ${getIcon(t)}"></i></div>
-      <div class="title-name">${t.nombre||''}</div>
-      <div class="title-inst">${t.institucion||''}</div>
+      <div class="title-name">${t.nombre}</div>
+      <div class="title-inst">${t.institucion}</div>
       <div class="title-meta">
-        <div class="title-year">${t['año']||t.ano||''}</div>
-        <div class="title-badge">${t.tipo||'Certificado'}</div>
+        <div class="title-year">${t.anio}</div>
+        <div class="title-badge">${t.tipo}</div>
       </div>
-      <button class="title-btn" ${hasUrl?'':'disabled'}
-        onclick="${hasUrl?`openPdf('${safeName}','${safeUrl}')`:''}" >
-        <i class="ti ${hasUrl?'ti-eye':'ti-clock'}"></i>
-        ${hasUrl?'Ver documento':'PDF pendiente'}
+      <button class="title-btn" ${hasUrl ? '' : 'disabled'}
+        ${hasUrl ? `onclick="openPdf('${sn}','${su}')"` : ''}>
+        <i class="ti ${hasUrl ? 'ti-eye' : 'ti-clock'}"></i>
+        ${hasUrl ? 'Ver documento' : 'PDF pendiente'}
       </button>
     </div>`;
   }).join('');
@@ -369,29 +402,14 @@ function renderTitulos() {
     <div class="titles-grid">${cards}</div>`;
 }
 
-function showError(msg) {
-  ['perfil','experiencia','formacion','aptitudes','titulos'].forEach(id => {
-    document.getElementById('tab-'+id).innerHTML =
-      `<div class="error-msg"><i class="ti ti-alert-circle"></i>${msg}</div>`;
-  });
-}
-
-async function enterPortfolio() {
+function enterPortfolio() {
   document.getElementById('screen-login').classList.remove('active');
   document.getElementById('screen-cv').classList.add('active');
-  if (!loaded) {
-    try {
-      await loadAllData();
-      renderPerfil();
-      renderExperiencia();
-      renderFormacion();
-      renderAptitudes();
-      renderTitulos();
-    } catch(e) {
-      showError('Error al cargar los datos. Verifica que el Sheets esté publicado en la web (Archivo → Compartir → Publicar en la web).');
-      console.error(e);
-    }
-  }
+  renderPerfil();
+  renderExperiencia();
+  renderFormacion();
+  renderAptitudes();
+  renderTitulos();
 }
 
 function logout() {
@@ -402,14 +420,13 @@ function logout() {
 function switchTab(tab, el) {
   document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
   document.querySelectorAll('.nav-tab').forEach(t => t.classList.remove('active'));
-  document.getElementById('tab-'+tab).classList.add('active');
+  document.getElementById('tab-' + tab).classList.add('active');
   if (el) el.classList.add('active');
 }
 
 function openPdf(name, embedUrl) {
   document.getElementById('pdf-modal-name').textContent = name;
-  const body = document.getElementById('pdf-modal-body');
-  body.innerHTML = embedUrl
+  document.getElementById('pdf-modal-body').innerHTML = embedUrl
     ? `<iframe class="pdf-frame" src="${embedUrl}" allowfullscreen></iframe>
        <div class="pdf-badge-wrap"><span class="pdf-badge"><i class="ti ti-shield-lock" style="font-size:11px"></i> Visualización protegida · Solo lectura</span></div>`
     : `<div class="pdf-nourl"><i class="ti ti-file-off"></i>Este documento aún no tiene PDF vinculado.</div>`;
